@@ -1,0 +1,287 @@
+$op0: transparent;
+$im: !important;
+$main-color: #ffffff;
+$sec-color: #ff8b38;
+$family: cursive;
+$margin: 80px !important;
+$display: none;
+$uppercase: uppercase;
+$sec-margin: 20px;
+
+/* mixins */
+@mixin centering-elements($left,$top,$type-of-align){
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -$left;
+	color: $main-color;
+	margin-top: -$top;
+	text-align: $type-of-align;
+}
+
+@mixin buttons-customization($width){
+	display: block;
+	width: $width;
+	color: white $im;
+	margin-top: 25px;
+	background-color: #ff8b38 $im;
+}
+@mixin buttons-hover(){
+	background-color: $main-color $im;
+	color: black $im;
+	border: 1px solid black $im;
+}
+
+@mixin scrollbar-customization($color){
+	border-radius: 10px;
+	background-color: $color;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+
+/* body */
+body{
+	font-family: $family $im;
+}
+
+/* scroll bar */
+
+::-webkit-scrollbar{
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+	@include scrollbar-customization(#a6a6a6);
+}
+
+::-webkit-scrollbar-track{
+	@include scrollbar-customization(#fff);
+}
+/* Navbar */
+
+@media (min-width: 989px) {
+	
+	.navbar{
+		border-color: $op0 $im;
+		background-color: $op0 $im;
+
+		a{
+			color: $main-color;
+		}
+		li{
+			margin: 5px;
+		}
+	}
+	.scrolled{
+		background-color: black $im;
+		border: 1px solid black;
+	}
+	
+}
+
+@media (max-width: 979px) {
+	.navbar{
+		border-color: $op0 $im;
+		background-color: black $im;
+
+		a{
+			color: $main-color;
+		}
+
+		li{
+			margin: 0px;
+		}
+	}
+	.header{
+		display: none;
+	}
+	
+}
+
+
+/* Header */
+.header{
+	background-image: url("../Images/3.jpg"); 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 100% $im;
+	min-width: 1024px $im;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	top: 0;
+	left: 0;
+	.header-title{
+		@include centering-elements(156.195px,60px,center);
+	}
+}
+
+/* tabs-section */
+.tabs-section{
+	padding: 80px 0;
+	background-color: #f5f5f5;
+	margin-top: $margin;
+	img{
+		width: 390px;
+		height: 253px;
+	}
+}
+.tab-switch{ 
+	li{
+		background-color: #333;
+		color: $main-color;
+		border-bottom: 1px solid $main-color;
+		height: 110px;
+		text-align: center;
+		line-height: 110px;
+		text-transform: uppercase;
+	}
+	.selected, li:hover{
+		background-color: #ff8b38;
+	}
+}
+
+.tabs-section {
+	.tabs-content{
+		h3{
+			margin-top: 0px;
+			font-weight: bold;
+			letter-spacing: -1px;
+			margin-bottom: 20px;
+		}
+		p.lead{
+			line-height: 1.6;
+			font-size: 18px;
+			color: #7e7e7e;
+		}
+		div:not(.tab-two){
+			display: none;
+		}
+	}
+	button{
+		@include buttons-customization(150px);
+		&:hover{
+			@include buttons-hover();
+		}
+	} 
+}
+
+@media (max-width: 767px){
+	.tabs-section img{
+		width: 320px;
+		height: 253px;
+		margin-top: $sec-margin;
+	}
+}
+
+/* reservation form */
+.Reservation{
+	margin-top: $margin;
+}
+
+form input{
+	width: 250px $im;
+	margin-bottom: $sec-margin;
+}
+
+.verification-button{
+	@include buttons-customization(150px);
+	&:hover{
+		@include buttons-hover();
+	}
+}
+
+@media(max-width: 767px){
+	.Reservation h1{
+		margin-bottom: 40px;
+	}
+}
+
+/* feedback */
+.feedback{ 
+	margin-top: $margin;
+	img{
+		border-radius: 50%;
+		display: block;
+		text-align: center;
+		margin-top: $sec-margin;
+		margin-bottom: $sec-margin;
+		padding: 20px;
+	}
+	.col-md-4{
+		font-size: 12px;
+		color: gray;
+		margin-bottom: 40px;
+	}
+}
+
+/* contact us */
+.uppercase{
+	text-transform: $uppercase;
+	text-align:center;
+}
+
+.contact-us{
+	margin-top: $margin;
+	form input{
+		border: none;
+		border-bottom: 1px solid orange;
+		border-radius: 0px;
+		width: 400px $im;
+	}
+}
+
+#contact-message{
+	height: 151px;
+	border-color: orange;
+	border: none;
+	border-bottom: 1px solid orange;
+	border-radius: 0px;
+}
+
+.btnCenter{
+	text-align: center;
+}
+
+.contact-button{
+	@include buttons-customization(150px);
+	&:hover{
+		@include buttons-hover();
+	}
+}
+
+@media (max-width:991.5px) and (min-width: 576px){
+	.contact-us form input{
+		width: 280px $im;
+	}
+}
+@media (max-width: 575px){
+	.contact-us form input{
+		width: 300px $im;
+	}
+}
+
+/* Footer */
+.footer1{
+	margin-top: $margin;
+	background-color: black;
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	.container .row ul li{
+		line-height: 30px;
+		padding: 5px;
+		a{
+			color: $main-color;
+			text-decoration: none;
+		}
+	}
+}
+small{
+	color: $main-color;
+	text-align: center;
+}
+/* For responsiveness */
